@@ -40,5 +40,5 @@ out/
 .DS_Store
 
 ### yaml ###
-resources/applicaion-dev.yml
-resources/application-local.yml
+src/main/resources/applicaion-dev.yml
+src/main/resources/application-local.yml
