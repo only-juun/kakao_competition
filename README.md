@@ -1,7 +1,7 @@
 # 관광데이터 활용 공모전
 ### tourAPI를 활용한 관광데이터 활용 공모전
 <div align="center">
-<p><img src="/doc/thumbnail.jpg"></p>
+<p><img src="/Backend/travel/doc/thumbnail.jpg"></p>
 </div>
 <h3>
 <p align="center">
@@ -37,5 +37,5 @@
 
 ### API Docs
 ﻿<div align="center">
-<p><img src="/doc/api_docs.png"></p>
+<p><img src="/Backend/travel/doc/api_docs.png"></p>
 </div>
