@@ -1,17 +1,15 @@
 package welcome.travel.dto.request;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-@Data
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserSignUpRequestDto {
 
     @Email

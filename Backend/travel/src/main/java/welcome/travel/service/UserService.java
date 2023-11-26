@@ -36,13 +36,11 @@ public class UserService {
         String accessToken = token.substring("Bearer ".length());
         User user = userRepository.findByEmail(jwtTokenProvider.getEmailFromAccessToken(accessToken)).orElseThrow();
 
-        UserInfoResponseDto userInfoResponseDto = UserInfoResponseDto.builder()
+        return ResponseEntity.ok(UserInfoResponseDto.builder()
                 .nickname(user.getNickname())
                 .phoneNumber(user.getPhoneNumber())
                 .email(user.getEmail())
-                .build();
-
-        return ResponseEntity.ok(userInfoResponseDto);
+                .build());
     }
 
     @Transactional

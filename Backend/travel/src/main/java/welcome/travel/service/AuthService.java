@@ -118,11 +118,10 @@ public class AuthService {
 
         TokenInfo tokenInfo = jwtTokenProvider.generateToken(authentication);
 
-        KakaoLoginResponseDto kakaoLoginResponseDto = new KakaoLoginResponseDto();
-        kakaoLoginResponseDto.setTokenInfo(tokenInfo);
-        kakaoLoginResponseDto.setFlag(flag);
-
-        return ResponseEntity.ok(kakaoLoginResponseDto);
+        return ResponseEntity
+                .ok(KakaoLoginResponseDto.builder()
+                        .flag(flag)
+                        .tokenInfo(tokenInfo).build());
     }
 
     public Account getKakaoInfo(String kakaoAccessToken) {

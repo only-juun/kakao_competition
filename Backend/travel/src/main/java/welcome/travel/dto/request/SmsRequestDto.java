@@ -7,9 +7,8 @@ import welcome.travel.dto.MessageDto;
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@AllArgsConstructor
 public class SmsRequestDto {
     private String type;
     private String contentType;

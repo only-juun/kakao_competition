@@ -3,9 +3,8 @@ package welcome.travel.dto;
 import lombok.*;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@AllArgsConstructor
 public class SmsConfirmDto {
     String confirmNumber;
 }

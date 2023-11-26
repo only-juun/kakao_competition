@@ -1,11 +1,11 @@
 package welcome.travel.exception;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
 public enum ErrorCode {
     NOT_FOUND_USER(-1000, "NOT FOUND USER", HttpStatus.NOT_FOUND),
     INVALID_EMAIL(-1001, "FORBIDDEN", HttpStatus.FORBIDDEN),
