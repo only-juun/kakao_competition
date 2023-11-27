@@ -2,12 +2,12 @@ package welcome.travel.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import welcome.travel.jwt.TokenInfo;
 
 @Getter
 @Builder
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class KakaoLoginResponseDto {
     private boolean flag;
     private TokenInfo tokenInfo;
