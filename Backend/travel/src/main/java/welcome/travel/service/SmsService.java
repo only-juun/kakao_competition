@@ -19,16 +19,16 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class SmsService {
     private final String smsConfirmNum = createSmsKey();
-    private static final Random random = new Random();
+    private static final SecureRandom random = new SecureRandom();
 
     @Value("${naver-cloud-sms.accessKey}")
     private String accessKey;

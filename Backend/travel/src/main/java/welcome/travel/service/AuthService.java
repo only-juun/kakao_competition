@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,8 +24,8 @@ import welcome.travel.domain.Account;
 import welcome.travel.domain.User;
 import welcome.travel.dto.KakaoAccountDto;
 import welcome.travel.dto.KakaoTokenDto;
-import welcome.travel.dto.request.KakaoLoginResponseDto;
 import welcome.travel.dto.request.SocialLoginRequestDto;
+import welcome.travel.dto.response.KakaoLoginResponseDto;
 import welcome.travel.jwt.JwtTokenProvider;
 import welcome.travel.jwt.TokenInfo;
 import welcome.travel.repository.UserRepository;
@@ -40,7 +41,9 @@ public class AuthService {
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
     private final Environment env;
-    private static final String PASSWORD = "0000";
+
+    @Value("${myapp.password}")
+    private String password;
     private Boolean flag = false;
 
     @Transactional
@@ -101,7 +104,7 @@ public class AuthService {
         User user = User.builder()
                 .email(account.getEmail())
                 .nickname(account.getKakaoName())
-                .password(passwordEncoder.encode(PASSWORD))
+                .password(passwordEncoder.encode(password))
                 .build();
         user.getRoles().add("KAKAO");
 
@@ -112,7 +115,7 @@ public class AuthService {
             userRepository.save(user);
         }
 
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(account.getEmail(), PASSWORD);
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(account.getEmail(), password);
 
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authToken);
 

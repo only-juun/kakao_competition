@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import welcome.travel.domain.User;
-import welcome.travel.dto.request.KakaoLoginResponseDto;
+import welcome.travel.dto.response.KakaoLoginResponseDto;
 import welcome.travel.dto.request.SocialLoginRequestDto;
 import welcome.travel.service.AuthService;
 
